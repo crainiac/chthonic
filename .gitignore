@@ -1,0 +1,15 @@
+# Be paranoid and ignore everything.
+*.*
+
+# Pass packaging-related files.
+!.git*
+!*.py
+!README.md
+!requirements.txt
+
+# Pass files for development and documentation.
+!*.sh
+!*.ipynb
+!*.rst
+!/doc/*
+!/doc/_build/*
