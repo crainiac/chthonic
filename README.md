@@ -24,7 +24,7 @@ Since a lot of my work involves data science-y stuff, I've also baked Jupyter in
 * Make sure that your `README.md` is informative about your package.
 * Make sure that all package dependencies have been added to `setup.py`.
 * The requirements for packaging are already installed in our venv by default.
-* `python setup.py sdist`[^1]
+* `python setup.py sdist`<sup>1</sup>
 * `twine upload dist/*` (requires a [pypi](https://pypi.org/) account).
 * Done!
 
@@ -34,4 +34,4 @@ Since a lot of my work involves data science-y stuff, I've also baked Jupyter in
 * Copy the bottom-most URL printed to the console (e.g., `http://127.0.0.1:8888/?token=5dibo` (the actual token will be way longer)).
 * Open your favorite web browser, paste in the URL, and go to it.
 
-[^1]: Notice that this doesn't issue `bdist_wheel`, in gross defiance of [the official packaging tutorial](https://packaging.python.org/tutorials/packaging-projects/). I've found wheel construction in Vagrant environments to be a bit buggy and, fortunately, unnecessary for my projects. If you find the lack of wheels disturbing, then you probably know enough about packaging not to need an environment like this in the first place.
+<sup>1</sup>Notice that this doesn't issue `bdist_wheel`, in gross defiance of [the official packaging tutorial](https://packaging.python.org/tutorials/packaging-projects/). I've found wheel construction in Vagrant environments to be a bit buggy and, fortunately, unnecessary for my projects. If you find the lack of wheels disturbing, then you probably know enough about packaging not to need an environment like this in the first place.
