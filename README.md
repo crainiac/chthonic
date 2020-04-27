@@ -9,6 +9,7 @@ Since a lot of my work involves data science-y stuff, I've also baked Jupyter in
 [VirtualBox](https://www.virtualbox.org/) and [Vagrant](https://www.vagrantup.com/).
 
 ## Environment Setup
+* Optional: Replace references to the dummy package name, chthonic, with your desired package name by running `sh replace_chthonic.sh <your-package-name>`.
 * Add any package dependencies to `setup.py` and `requirements.txt`. (If you decide to `pip install` new requirements as you develop, it's all good! Just remember to add them to `setup.py`. Adding them to `requirements.txt` is probably a good idea, too.)
 * Install the environment with `vagrant up`.
 * Enter the environment with `vagrant ssh`.
@@ -16,7 +17,7 @@ Since a lot of my work involves data science-y stuff, I've also baked Jupyter in
 
 ## Package Development.
 * Enter the environment with `vagrant ssh`.
-* A [venv](https://docs.python.org/3/library/venv.html) for your package will be automatically loaded. (For illustrative purposes, I've created the dummy package `chthonic`. To package your project correctly, just replace `chthonic` in `setup.py` and the corresponding subfolder name with `<your-package-name>`. You can also replace `chthonic` with `<your-package-name>` in the Vagrantfile, if you want, but packaging will work just as well either way.)
+* A [venv](https://docs.python.org/3/library/venv.html) for your package will be automatically loaded. (For illustrative purposes, I've created the dummy package `chthonic`. To package your project correctly, just replace `chthonic` in `setup.py` and the corresponding subfolder name with `<your-package-name>`. You can also replace `chthonic` with `<your-package-name>` in the Vagrantfile, if you want, but packaging will work just as well either way. `sh replace_chthonic.sh <your-package-name>` does all of this for you.)
 * Add project files in the appropriate directory (in this example, .py files in the `chthonic` subfolder will be packaged).
 
 ## Packaging for PyPI
