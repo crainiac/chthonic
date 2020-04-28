@@ -9,30 +9,32 @@ Since a lot of my work involves data science-y stuff, I've also baked Jupyter in
 [VirtualBox](https://www.virtualbox.org/) and [Vagrant](https://www.vagrantup.com/).
 
 ## Environment Setup
-* Optional: Replace references to the dummy package name, chthonic, with your desired package name by running `sh replace_chthonic.sh <your-package-name>`.
-* Add any package dependencies to `setup.py` and `requirements.txt`. (If you decide to `pip install` new requirements as you develop, it's all good! Just remember to add them to `setup.py`. Adding them to `requirements.txt` is probably a good idea, too.)
-* Install the environment with `vagrant up`.
-* Enter the environment with `vagrant ssh`.
-* To stop running the environment, exit it with `exit` and halt it with `vagrant halt` (this can save a lot of memory/CPU when you're not working on the package). Bring it up again anytime with `vagrant up`.
+1. Replace references to the dummy package name with your package name via `sh replace_chthonic.sh <your-package-name>`.
+2. Add any package dependencies to `setup.py` and `requirements.txt`.
+   * If you decide to `pip install` new dependencies later on, as you develop, it's all good! Just remember to add them to `setup.py` and `requirements.txt`.
+3. Install the environment with `vagrant up`.
+4. Enter the environment with `vagrant ssh`.
+   * To stop running the environment, exit it with `exit` and halt it with `vagrant halt`—this can save a lot of CPU and memory when you're not working on the package. Bring it up again anytime with `vagrant up`.
 
 ## Package Development.
-* Enter the environment with `vagrant ssh`.
-* A [venv](https://docs.python.org/3/library/venv.html) for your package will be automatically loaded. (For illustrative purposes, I've created the dummy package `chthonic`. To package your project correctly, just replace `chthonic` in `setup.py` and the corresponding subfolder name with `<your-package-name>`. You can also replace `chthonic` with `<your-package-name>` in the Vagrantfile, if you want, but packaging will work just as well either way. `sh replace_chthonic.sh <your-package-name>` does all of this for you.)
-* Add project files in the appropriate directory (in this example, .py files in the `chthonic` subfolder will be packaged).
+1. Enter the environment with `vagrant ssh`.
+   * A [venv](https://docs.python.org/3/library/venv.html) for your package will be automatically activated each time you enter.
+     * The necessary packaging tools are already installed in this venv by default.
+     * Other development tools (e.g., `pylint`) are also installed by default; check out `requirements.txt` for the full list.
+2. Add project files to the appropriate directory (e.g., the package subfolder, whose name is `chthonic` in this example).
 
 ## Packaging for PyPI
-* Enter the Vagrant environment with `vagrant ssh`.
-* Make sure that your `README.md` is informative about your package.
-* Make sure that all package dependencies have been added to `setup.py`.
-* The requirements for packaging are already installed in our venv by default.
-* `python setup.py sdist`<sup>1</sup>
-* `twine upload dist/*` (requires a [pypi](https://pypi.org/) account).
-* Done!
+1. Enter the Vagrant environment with `vagrant ssh`.
+2. Make sure that your `README.md` is informative about your package.
+3. Make sure that all package dependencies have been added to `setup.py`.
+4. `python setup.py sdist`<sup>1</sup>
+5. `twine upload dist/*` (requires a [PyPI](https://pypi.org/) account).
+6. Done!
 
 ## Using Jupyter Notebooks with Vagrant
-* Enter the environment with `vagrant ssh`.
-* Inside the environment, run `jupyter notebook --ip=0.0.0.0`.
-* Copy the bottom-most URL printed to the console (e.g., `http://127.0.0.1:8888/?token=5dibo` (the actual token will be way longer)).
-* Open your favorite web browser, paste in the URL, and go to it.
+1. Enter the environment with `vagrant ssh`.
+2. Inside the environment, run `jupyter notebook --ip=0.0.0.0`.
+3. Copy the bottom-most URL printed to the console (e.g., `http://127.0.0.1:8888/?token=5dibo` (the actual token will be way, way, way longer)).
+4. Open your favorite web browser, paste in the URL, and go to it.
 
-<sup>1</sup>Notice that this doesn't issue `bdist_wheel`, in gross defiance of [the official packaging tutorial](https://packaging.python.org/tutorials/packaging-projects/). I've found wheel construction in Vagrant environments to be a bit buggy and, fortunately, unnecessary for my projects. If you find the lack of wheels disturbing, then you probably know enough about packaging not to need an environment like this in the first place.
+<sup>1</sup>Notice that this doesn't issue `bdist_wheel`, in flagrant violation of [the official packaging tutorial](https://packaging.python.org/tutorials/packaging-projects/). I've found wheel construction in Vagrant environments to be a bit buggy and, fortunately, unnecessary for my projects. If you find the lack of wheels disturbing, then you probably know enough about packaging not to need an environment like this in the first place.
