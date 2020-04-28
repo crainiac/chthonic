@@ -1,13 +1,11 @@
-# Be paranoid and ignore everything.
+# Be paranoid and ignore everything with an extension.
 *.*
 
-# Pass packaging-related files.
+# Allow everything that should be allowed through through.
 !.git*
 !*.py
 !README.md
 !requirements.txt
-
-# Pass files for development and documentation.
 !*.sh
 !*.ipynb
 !*.rst
