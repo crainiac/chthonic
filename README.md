@@ -14,7 +14,7 @@ Since a lot of my work involves data science-y stuff, I've also baked Jupyter in
    * If you decide to `pip install` new dependencies as you develop, it's all good! Just remember to add them to `setup.py` and `requirements.txt`.
 3. Install the environment with `vagrant up`.
 4. Enter the environment with `vagrant ssh`.
-   * To stop running the environment, exit it with `exit` and halt it with `vagrant halt`&mdashthis can save a lot of CPU and memory when you're not working on the package. Bring it up again anytime with `vagrant up`.
+   * To stop running the environment, exit it with `exit` and halt it with `vagrant halt`&#151this can save a lot of CPU and memory when you're not working on the package. Bring it up again anytime with `vagrant up`.
 
 ## Package Development.
 1. Enter the environment with `vagrant ssh`.
