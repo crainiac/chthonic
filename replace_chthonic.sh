@@ -2,7 +2,8 @@
 if [ ! -z "$1" ]
 then
     mv chthonic $1
-    sed -i s/chthonic/$1/g Vagrantfile setup.py
+    sed -i'.bak' -e s/chthonic/$1/g Vagrantfile setup.py
+    rm Vagrantfile.bak setup.py.bak
 else
     echo 'Usage: sh replace_chthonic.sh <your-package-name>'
 fi
