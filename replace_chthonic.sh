@@ -1,4 +1,4 @@
-# This script replaces the dummy package name with the desired package name,
+# Replaces the dummy package name with the desired package name,
 # deletes chthonic version control information, and deletes itself.
 set -e
 if [ ! -z "$1" ]
