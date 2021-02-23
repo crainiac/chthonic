@@ -45,6 +45,8 @@ Vagrant.configure("2") do |config|
     cd /home/vagrant
     # Activate the venv upon shell session startup.
     echo 'source /vagrant/.chthonic/bin/activate' >> /home/vagrant/.bashrc
+    # Disable auto-brackets in Jupyter (errors if jupyter not in reqs).
+    printf '{\n  "CodeCell": {\n    "cm_config": {\n      "autoCloseBrackets": false\n    }\n  }\n}\n' >> /vagrant/.chthonic/etc/jupyter/nbconfig/notebook.json
 
     # Increase the swap size.
     swapoff -a
