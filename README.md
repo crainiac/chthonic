@@ -25,7 +25,7 @@ Since a lot of my work involves data science-y stuff, I've also baked Jupyter in
 1. Enter the Vagrant environment with `vagrant ssh`.
 2. Make sure that your `README.md` is informative about your package.
 3. Make sure that all package dependencies have been added to `setup.py`.
-4. `python setup.py sdist`<sup>1</sup>
+4. `python3 setup.py sdist`<sup>1</sup>
 5. `twine upload dist/*` (requires a [PyPI](https://pypi.org/) account).
 6. Done!
 
