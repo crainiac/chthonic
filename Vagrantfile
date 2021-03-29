@@ -33,7 +33,7 @@ Vagrant.configure("2") do |config|
     # Install system requirements for Python.
     apt-get update
     apt-get install -y python3 python3-pip python3-testresources
-    apt-get install -y swig #
+    apt-get install -y swig
     apt-get -y autoremove
     # Install the package requirements and the package itself in a venv.
     cd /vagrant
