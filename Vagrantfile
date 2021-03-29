@@ -3,7 +3,7 @@
 
 # Development environment for a Python package with Jupyter.
 Vagrant.configure("2") do |config|
-  config.vm.box = "hashicorp/bionic64"
+  config.vm.box = "ubuntu/focal64"
   config.vm.hostname = "chthonic"
 
   # Set up port forwarding to work with Jupyter.
@@ -32,21 +32,17 @@ Vagrant.configure("2") do |config|
 
     # Install system requirements for Python.
     apt-get update
-    apt-get install -y python3 python3-pip python3-venv
+    apt-get install -y python3 python3-pip python3-testresources
+    apt-get install -y swig #
     apt-get -y autoremove
     # Install the package requirements and the package itself in a venv.
     cd /vagrant
-    python3 -m venv .chthonic
-    source .chthonic/bin/activate
-    pip install --upgrade pip
-    pip install -r requirements.txt
-    pip install -e .
-    deactivate
+    python3 -m pip install --upgrade pip setuptools virtualenv
+    python3 -m pip install -r requirements.txt
+    python3 -m pip install -e .
     cd /home/vagrant
-    # Activate the venv upon shell session startup.
-    echo 'source /vagrant/.chthonic/bin/activate' >> /home/vagrant/.bashrc
     # Disable auto-brackets in Jupyter (errors if jupyter not in reqs).
-    printf '{\n  "CodeCell": {\n    "cm_config": {\n      "autoCloseBrackets": false\n    }\n  }\n}\n' >> /vagrant/.chthonic/etc/jupyter/nbconfig/notebook.json
+    printf '{\n  "CodeCell": {\n    "cm_config": {\n      "autoCloseBrackets": false\n    }\n  }\n}\n' >> /usr/local/etc/jupyter/nbconfig/notebook.json
 
     # Increase the swap size.
     swapoff -a

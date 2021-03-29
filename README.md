@@ -18,9 +18,7 @@ Since a lot of my work involves data science-y stuff, I've also baked Jupyter in
 
 ## Package Development.
 1. Enter the environment with `vagrant ssh`.
-   * A [venv](https://docs.python.org/3/library/venv.html) for your package will be automatically activated each time you enter.
-     * The necessary packaging tools are already installed in this venv by default.
-     * Other development tools (e.g., `pylint`) are also installed by default; check out `requirements.txt` for the full list.
+     * Some development tools (e.g., `pylint`) are installed by default; check out `requirements.txt` for the full list.
 2. Add project files to the appropriate directory (e.g., the package subfolder, whose name is `chthonic` in this example).
 
 ## Packaging for PyPI
